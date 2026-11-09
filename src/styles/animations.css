@@ -1,0 +1,257 @@
+/* ---------- Pétalos que caen ---------- */
+.petals-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  border-radius: 90% 0 90% 0;
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--rosa-antiguo));
+  opacity: 0;
+  animation-name: petal-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Pétalos grandes en primer plano, ligeramente desenfocados */
+.petal.blurred {
+  filter: blur(1.6px);
+}
+
+/* Trocitos de confeti que caen con los pétalos */
+.petal.confetti {
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(91, 58, 70, 0.15);
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -40px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(var(--drift, 60px), 110vh, 0) rotate(320deg);
+    opacity: 0.5;
+  }
+}
+
+/* ---------- Destellos ---------- */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+/* ---------- Mariposas ---------- */
+.butterfly {
+  position: absolute;
+  width: 34px;
+  height: 30px;
+  pointer-events: none;
+  animation: butterfly-wander var(--wander, 22s) ease-in-out infinite;
+}
+
+.butterfly .wing {
+  position: absolute;
+  top: 0;
+  width: 16px;
+  height: 26px;
+  border-radius: 60% 60% 50% 50%;
+  background: linear-gradient(160deg, var(--rosa-antiguo), var(--rosa-intenso));
+  transform-origin: right center;
+  animation: wing-flap 0.55s ease-in-out infinite;
+}
+
+.butterfly .wing.left {
+  left: 0;
+  transform-origin: right center;
+}
+
+.butterfly .wing.right {
+  right: 0;
+  transform: scaleX(-1);
+  transform-origin: left center;
+}
+
+.butterfly .body {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  width: 3px;
+  height: 24px;
+  margin-left: -1.5px;
+  border-radius: 4px;
+  background: var(--tinta);
+}
+
+@keyframes wing-flap {
+  0%,
+  100% {
+    transform: scaleX(1) rotate(0deg);
+  }
+  50% {
+    transform: scaleX(0.35) rotate(8deg);
+  }
+}
+
+.butterfly .wing.right {
+  animation-name: wing-flap-right;
+}
+
+@keyframes wing-flap-right {
+  0%,
+  100% {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  50% {
+    transform: scaleX(-0.35) rotate(-8deg);
+  }
+}
+
+@keyframes butterfly-wander {
+  0% {
+    transform: translate(0, 0) rotate(4deg);
+  }
+  20% {
+    transform: translate(var(--x1, 60px), var(--y1, -50px)) rotate(-8deg);
+  }
+  40% {
+    transform: translate(var(--x2, 120px), var(--y2, 10px)) rotate(10deg);
+  }
+  60% {
+    transform: translate(var(--x3, 40px), var(--y3, 60px)) rotate(-6deg);
+  }
+  80% {
+    transform: translate(var(--x4, -40px), var(--y4, -20px)) rotate(6deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(4deg);
+  }
+}
+
+/* ---------- Llamas de velas ---------- */
+.flame {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 14px;
+  height: 22px;
+  margin-left: -7px;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(circle at 50% 30%, #fff8d0 0%, #ffd76a 45%, #ff9a3d 80%, rgba(255, 120, 40, 0) 100%);
+  filter: drop-shadow(0 0 8px rgba(255, 190, 80, 0.9));
+  transform-origin: 50% 100%;
+  animation: flame-flicker 0.32s ease-in-out infinite alternate;
+}
+
+.flame::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 6px;
+  height: 10px;
+  margin-left: -3px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 220, 120, 0.4) 70%, transparent);
+}
+
+@keyframes flame-flicker {
+  0% {
+    transform: scaleY(1) scaleX(1) rotate(-2deg);
+  }
+  50% {
+    transform: scaleY(1.12) scaleX(0.92) rotate(2deg);
+  }
+  100% {
+    transform: scaleY(0.94) scaleX(1.05) rotate(-3deg);
+  }
+}
+
+.flame.out {
+  animation: flame-out 0.5s ease forwards;
+}
+
+@keyframes flame-out {
+  to {
+    transform: scale(0) translateY(-8px);
+    opacity: 0;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
+/* ---------- Confeti delicado ---------- */
+.confetti-piece {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+/* ---------- Luces del jardín (luciérnagas) ---------- */
+.firefly {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffde8 0%, var(--dorado) 55%, transparent 80%);
+  box-shadow: 0 0 10px 3px rgba(215, 185, 120, 0.55);
+  animation: firefly-float var(--dur, 9s) ease-in-out infinite;
+}
+
+@keyframes firefly-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(var(--fx, 30px), var(--fy, -40px));
+    opacity: 1;
+  }
+}
+
+/* ---------- Flores del jardín ---------- */
+@keyframes grow-flower {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* ---------- Sobre ---------- */
+@keyframes letter-slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,27 @@
+RECURSOS DEL PROYECTO
+=====================
+
+1) FOTOS DE MAMI (10 a 15)
+   Colócalas en: public/images/mami/
+   Nombres esperados: foto-01.jpg, foto-02.jpg ... foto-13.jpg
+   Puedes cambiar nombres, cantidad y textos en src/data/memories.js
+   Mientras no existan, la página muestra un marco decorativo con
+   el nombre del archivo esperado (así puedes ver el diseño ya).
+
+2) MÚSICA DE FONDO  ✔ YA INCLUIDA
+   public/music/piano.mp3 — "Gymnopedie No. 1" de Erik Satie,
+   interpretada por Kevin MacLeod (incompetech.com, licencia
+   Creative Commons BY 4.0). Piano instrumental, romántico y
+   tranquilo. Si prefieres otra canción, reemplaza el archivo
+   o cambia la ruta en src/data/memories.js (MUSIC_SRC).
+
+3) FELIZ CUMPLEAÑOS  ✔ YA INCLUIDO
+   Al aparecer la torta suena automáticamente la melodía de
+   "Feliz cumpleaños" con un sonido delicado tipo caja de
+   música (sintetizada en src/utils/happyBirthday.js, no
+   requiere archivo). La música de fondo baja su volumen
+   mientras suena la melodía.
+
+4) TEXTOS
+   Todo el contenido (nombre, dedicatorias, carta, frases) se
+   edita en: src/data/memories.js

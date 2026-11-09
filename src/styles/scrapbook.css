@@ -1,0 +1,1246 @@
+/* =========================================================
+   Estilo scrapbook vintage: papel, marcos, encajes, libro
+   ========================================================= */
+
+/* ---------- Papel envejecido ---------- */
+.paper {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(215, 185, 120, 0.12) 0, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(185, 111, 137, 0.08) 0, transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(132, 97, 109, 0.045) 26px 27px),
+    linear-gradient(150deg, #fdf3e4 0%, var(--crema-papel) 60%, #f5e7d2 100%);
+}
+
+.paper-edge {
+  box-shadow:
+    inset 0 0 40px rgba(179, 144, 79, 0.18),
+    inset 0 0 6px rgba(91, 58, 70, 0.12);
+}
+
+/* ---------- Fotos tipo Polaroid ---------- */
+.polaroid {
+  position: relative;
+  background: #fffdf8;
+  padding: 10px 10px 38px;
+  box-shadow: 0 6px 16px rgba(91, 58, 70, 0.28);
+  border: 1px solid rgba(215, 185, 120, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+}
+
+.polaroid:hover {
+  transform: scale(1.03) rotate(0deg) !important;
+  box-shadow: 0 12px 26px rgba(91, 58, 70, 0.35);
+  z-index: 5;
+}
+
+.polaroid .photo-window {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--rosa-pastel);
+  border: 1px solid rgba(185, 111, 137, 0.2);
+}
+
+.polaroid .photo-window img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid .caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--tinta);
+}
+
+/* Cinta adhesiva decorativa sobre las fotos */
+.tape {
+  position: absolute;
+  width: 74px;
+  height: 22px;
+  background: linear-gradient(100deg, rgba(245, 214, 224, 0.85), rgba(215, 185, 120, 0.5));
+  opacity: 0.85;
+  box-shadow: 0 1px 3px rgba(91, 58, 70, 0.15);
+  border-left: 1px dashed rgba(255, 255, 255, 0.7);
+  border-right: 1px dashed rgba(255, 255, 255, 0.7);
+}
+
+.tape.tl {
+  top: -10px;
+  left: -18px;
+  transform: rotate(-42deg);
+}
+
+.tape.tr {
+  top: -10px;
+  right: -18px;
+  transform: rotate(42deg);
+}
+
+/* Placeholder cuando falta una fotografía */
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(217, 154, 175, 0.35), transparent 65%),
+    repeating-linear-gradient(45deg, rgba(217, 154, 175, 0.08) 0 8px, transparent 8px 16px),
+    var(--rosa-pastel);
+  color: var(--rosa-profundo);
+  font-size: 0.72rem;
+  font-family: var(--font-body);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.photo-placeholder svg {
+  opacity: 0.7;
+}
+
+/* ---------- Encajes y bordes ---------- */
+.lace-border {
+  border: 2px solid var(--dorado);
+  outline: 6px double rgba(215, 185, 120, 0.45);
+  outline-offset: 4px;
+}
+
+.corner-flower {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  color: var(--rosa-intenso);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.corner-flower.tl { top: 6px; left: 6px; }
+.corner-flower.tr { top: 6px; right: 6px; transform: scaleX(-1); }
+.corner-flower.bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
+.corner-flower.br { bottom: 6px; right: 6px; transform: scale(-1); }
+
+/* ---------- Libro scrapbook ---------- */
+.book-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.memory-book {
+  filter: drop-shadow(0 24px 40px rgba(91, 58, 70, 0.45));
+}
+
+.memory-book .page {
+  overflow: hidden;
+}
+
+.book-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: clamp(14px, 3.5%, 30px);
+  display: flex;
+  flex-direction: column;
+}
+
+.book-page.left {
+  border-right: 1px solid rgba(179, 144, 79, 0.35);
+  box-shadow: inset -18px 0 26px -18px rgba(91, 58, 70, 0.35);
+}
+
+.book-page.right {
+  border-left: 1px solid rgba(179, 144, 79, 0.35);
+  box-shadow: inset 18px 0 26px -18px rgba(91, 58, 70, 0.35);
+}
+
+.book-cover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(245, 214, 224, 0.5), transparent 60%),
+    linear-gradient(150deg, #c98ba0 0%, var(--rosa-intenso) 55%, #a35d77 100%);
+  color: #fff;
+  border: 3px solid var(--dorado);
+  outline: 10px solid rgba(255, 245, 233, 0.25);
+  outline-offset: -14px;
+}
+
+.book-cover h1 {
+  font-family: var(--font-title);
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(91, 58, 70, 0.4);
+}
+
+.book-cover .cover-name {
+  font-family: var(--font-hand);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: #ffe9f1;
+}
+
+.book-cover .cover-sub {
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.92;
+  max-width: 30ch;
+}
+
+.page-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  color: var(--rosa-profundo);
+  margin: 0 0 0.15rem;
+}
+
+.page-note {
+  font-family: var(--font-hand);
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  color: var(--rosa-intenso);
+}
+
+.page-text {
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  line-height: 1.55;
+  color: var(--tinta);
+  font-style: italic;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 8px;
+  font-size: 0.7rem;
+  color: var(--dorado-oscuro);
+  font-family: var(--font-title);
+  letter-spacing: 0.1em;
+}
+
+.book-page.left .page-number { left: 14px; }
+.book-page.right .page-number { right: 14px; }
+
+/* Distribución de fotos dentro de una página */
+.page-photos {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.2rem);
+  flex-wrap: wrap;
+  padding: 0.4rem 0;
+  min-height: 0;
+}
+
+.page-photos .polaroid {
+  flex: 0 1 auto;
+  width: min(46%, 240px);
+}
+
+.page-photos.single .polaroid {
+  width: min(78%, 300px);
+}
+
+.page-photos.collage .polaroid {
+  width: min(42%, 200px);
+}
+
+/* Tarjeta interactiva "cosas que amo de ti" */
+.reasons-card {
+  position: relative;
+  margin: 1rem auto 0;
+  padding: 0.9rem 1.2rem 1rem;
+  background: #fffdf8;
+  border: 1px solid rgba(215, 185, 120, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(91, 58, 70, 0.16);
+  transform: rotate(-1.5deg);
+  max-width: 300px;
+  width: 100%;
+  text-align: left;
+}
+
+.reasons-title {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--rosa-profundo);
+  text-align: center;
+  margin: 0 0 0.5rem;
+}
+
+.reason-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.28rem 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--tinta);
+}
+
+.reason-heart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  border: none;
+  background: rgba(245, 214, 224, 0.5);
+  border-radius: 50%;
+  color: var(--rosa-intenso);
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.reason-heart:hover {
+  background: var(--rosa-pastel);
+  transform: scale(1.1);
+}
+
+.burst-heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -5px 0 0 -5px;
+  pointer-events: none;
+}
+
+.reason-num {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--dorado-oscuro);
+  min-width: 15px;
+}
+
+.reasons-finale {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--rosa-intenso);
+  text-align: center;
+  margin: 0.45rem 0 0;
+}
+
+/* Etiqueta sobre una foto polaroid */
+.photo-label {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  padding: 0.25rem 0.7rem;
+  background: #fffdf8;
+  border: 1px dashed var(--dorado);
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(91, 58, 70, 0.18);
+  font-family: var(--font-hand);
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  line-height: 1.2;
+  color: var(--rosa-profundo);
+  white-space: nowrap;
+  z-index: 8;
+}
+
+/* Etiqueta de papel estilo scrapbook en la página */
+.page-tag {
+  position: absolute;
+  top: 47%;
+  right: 5%;
+  max-width: 40%;
+  padding: 0.45rem 0.9rem;
+  background: #fffdf8;
+  border: 1px dashed var(--dorado);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(91, 58, 70, 0.18);
+  font-family: var(--font-hand);
+  font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+  line-height: 1.25;
+  color: var(--tinta);
+  transform: rotate(-3deg);
+  z-index: 6;
+}
+
+.page-tag::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 44px;
+  height: 16px;
+  margin-left: -22px;
+  background: linear-gradient(100deg, rgba(245, 214, 224, 0.85), rgba(215, 185, 120, 0.5));
+  transform: rotate(2deg);
+  box-shadow: 0 1px 3px rgba(91, 58, 70, 0.15);
+}
+
+/* Mensajes ocultos tras flores/corazones */
+.secret {
+  position: relative;
+  display: inline-flex;
+  border: none;
+  background: none;
+  padding: 0.2rem;
+  color: var(--rosa-intenso);
+  transition: transform 0.25s ease;
+}
+
+.secret:hover {
+  transform: scale(1.25) rotate(-6deg);
+}
+
+.secret-pop {
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 200px;
+  padding: 0.5rem 0.8rem;
+  background: #fffdf8;
+  border: 1px solid var(--dorado);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(91, 58, 70, 0.25);
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: var(--tinta);
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Controles del libro */
+.book-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.page-indicator {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  color: var(--rosa-profundo);
+  min-width: 90px;
+  text-align: center;
+}
+
+.nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 253, 248, 0.9);
+  color: var(--rosa-intenso);
+  box-shadow: 0 4px 12px rgba(91, 58, 70, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-arrow:hover:not(:disabled) {
+  transform: scale(1.1);
+  background: var(--rosa-pastel);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ---------- Visor de fotos ampliado ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(70, 38, 51, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox figure {
+  margin: 0;
+  max-width: min(92vw, 860px);
+  max-height: 88vh;
+  background: #fffdf8;
+  padding: 14px 14px 46px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+}
+
+.lightbox figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--tinta);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--rosa-intenso);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Escena 1: tarjeta ---------- */
+.card-3d-wrap {
+  perspective: 1400px;
+  position: relative;
+  z-index: 2;
+}
+
+.invite-card {
+  position: relative;
+  width: min(560px, 88vw);
+  min-height: min(360px, 56vh);
+  display: flex;
+  transform-style: preserve-3d;
+}
+
+.invite-card .card-inside {
+  flex: 1;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.invite-card .card-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  z-index: 3;
+}
+
+.bow {
+  position: relative;
+  width: 150px;
+  height: 60px;
+}
+
+.bow .loop {
+  position: absolute;
+  top: 8px;
+  width: 62px;
+  height: 44px;
+  background: linear-gradient(160deg, #f7c9d8, var(--rosa-antiguo));
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: inset -4px -6px 10px rgba(143, 78, 102, 0.35);
+}
+
+.bow .loop.l {
+  left: 4px;
+  transform: rotate(-24deg) skewX(-14deg);
+}
+
+.bow .loop.r {
+  right: 4px;
+  transform: rotate(24deg) skewX(14deg);
+}
+
+.bow .knot {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 26px;
+  height: 26px;
+  margin-left: -13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f9d3e0, var(--rosa-intenso));
+  box-shadow: 0 2px 6px rgba(91, 58, 70, 0.35);
+}
+
+.bow .tail {
+  position: absolute;
+  top: 38px;
+  width: 14px;
+  height: 52px;
+  background: linear-gradient(180deg, var(--rosa-antiguo), var(--rosa-intenso));
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+}
+
+.bow .tail.l { left: 52px; transform: rotate(12deg); }
+.bow .tail.r { right: 52px; transform: rotate(-12deg); }
+
+/* ---------- Escena 2: torta ---------- */
+.cake {
+  position: relative;
+  width: min(360px, 80vw);
+  height: 320px;
+  margin-bottom: 1.4rem;
+}
+
+/* Bandeja dorada delgada */
+.cake-plate {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 112%;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 30%, #f6e6bd 0%, var(--dorado) 65%, var(--dorado-oscuro) 100%);
+  box-shadow: 0 10px 22px rgba(91, 58, 70, 0.3);
+}
+
+/* Pisos de glaseado marfil rústico */
+.cake-tier {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px 10px 8px 8px;
+  background:
+    radial-gradient(ellipse at 30% 18%, rgba(255, 255, 255, 0.6), transparent 52%),
+    radial-gradient(ellipse at 72% 82%, rgba(224, 201, 165, 0.45), transparent 55%),
+    linear-gradient(180deg, #faf0e0 0%, #f3e5ce 55%, #ecdcc0 100%);
+  box-shadow:
+    inset 0 -10px 18px rgba(190, 160, 110, 0.32),
+    inset 0 4px 8px rgba(255, 255, 255, 0.65),
+    0 6px 14px rgba(91, 58, 70, 0.16);
+}
+
+/* Hojuelas de oro sobre el glaseado */
+.cake-tier::after {
+  content: "";
+  position: absolute;
+  top: 36%;
+  left: 13%;
+  width: 7px;
+  height: 5px;
+  border-radius: 60% 40% 55% 45%;
+  background: rgba(215, 185, 120, 0.85);
+  box-shadow:
+    26px 15px 0 -1px rgba(215, 185, 120, 0.7),
+    55px -7px 0 0 rgba(215, 185, 120, 0.55),
+    92px 20px 0 -1.5px rgba(215, 185, 120, 0.8),
+    132px 3px 0 0 rgba(215, 185, 120, 0.5),
+    -10px 24px 0 -1px rgba(215, 185, 120, 0.65);
+}
+
+.cake-tier.t3::after {
+  top: 30%;
+  left: 18%;
+  box-shadow:
+    22px 10px 0 -1px rgba(215, 185, 120, 0.7),
+    48px -4px 0 0 rgba(215, 185, 120, 0.55),
+    70px 14px 0 -1.5px rgba(215, 185, 120, 0.75);
+}
+
+/* Ribete de perlas en la base de cada piso */
+.cake-tier .pearls {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: -9px;
+  height: 13px;
+  z-index: 6;
+  background: radial-gradient(circle at 7px 6px, #fffaf0 4.6px, #e8d3ac 5.6px, transparent 6.4px) repeat-x;
+  background-size: 14px 13px;
+  filter: drop-shadow(0 1px 1px rgba(91, 58, 70, 0.25));
+}
+
+.cake-tier.t1 { bottom: 14px; width: 100%; height: 98px; z-index: 3; }
+.cake-tier.t2 { bottom: 108px; width: 74%; height: 82px; z-index: 2; }
+.cake-tier.t3 { bottom: 186px; width: 48%; height: 62px; z-index: 1; }
+
+/* Velas sobre el piso superior */
+.candles-row {
+  position: absolute;
+  bottom: 244px;
+  left: 31%;
+  right: 31%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  z-index: 5;
+}
+
+.candle {
+  position: relative;
+  width: 9px;
+  height: 44px;
+  border-radius: 5px;
+  background: repeating-linear-gradient(135deg, #fff 0 5px, #eba9c0 5px 10px);
+  box-shadow: 0 2px 4px rgba(91, 58, 70, 0.3);
+}
+
+.candle .wick {
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  width: 2px;
+  height: 6px;
+  margin-left: -1px;
+  background: var(--tinta);
+}
+
+/* Rosas decorativas */
+.cake-rose {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f9d3e0 0%, var(--rosa-antiguo) 55%, var(--rosa-intenso) 100%);
+  box-shadow: inset -3px -4px 8px rgba(143, 78, 102, 0.4), 0 2px 5px rgba(91, 58, 70, 0.25);
+  z-index: 7;
+}
+
+.cake-rose.small {
+  width: 20px;
+  height: 20px;
+}
+
+.cake-rose::before {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  border: 2px solid rgba(143, 78, 102, 0.35);
+  border-left-color: transparent;
+  transform: rotate(40deg);
+}
+
+/* Macarons rosados */
+.macaron {
+  position: absolute;
+  width: 27px;
+  height: 21px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--rosa-antiguo) 0 44%, #fdf0ea 44% 58%, var(--rosa-intenso) 58% 100%);
+  box-shadow: 0 2px 4px rgba(91, 58, 70, 0.3);
+  z-index: 7;
+}
+
+/* Hojas de eucalipto */
+.cake-leaf {
+  position: absolute;
+  width: 17px;
+  height: 10px;
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(120deg, #b9c19b, var(--verde-salvia));
+  box-shadow: 0 1px 3px rgba(91, 58, 70, 0.2);
+  z-index: 8;
+}
+
+/* ---------- Escena 3: portada ---------- */
+.closed-book-wrap {
+  perspective: 1600px;
+}
+
+.closed-book {
+  position: relative;
+  width: min(400px, 82vw);
+  aspect-ratio: 3 / 4.1;
+  transform-style: preserve-3d;
+}
+
+.closed-book .book-back {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(-14px);
+  border-radius: 8px 16px 16px 8px;
+  background: linear-gradient(150deg, #a35d77, var(--rosa-profundo));
+  box-shadow: 0 26px 50px rgba(91, 58, 70, 0.5);
+}
+
+.closed-book .book-pages {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: -7px;
+  width: 12px;
+  border-radius: 0 6px 6px 0;
+  background: repeating-linear-gradient(0deg, var(--crema-papel) 0 3px, #efe0c8 3px 4px);
+  box-shadow: 2px 4px 10px rgba(91, 58, 70, 0.3);
+}
+
+.closed-book .book-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px 16px 16px 8px;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(245, 214, 224, 0.4), transparent 55%),
+    linear-gradient(150deg, #c98ba0 0%, var(--rosa-intenso) 60%, #a35d77 100%);
+  border: 3px solid var(--dorado);
+  outline: 8px double rgba(255, 245, 233, 0.35);
+  outline-offset: -16px;
+  box-shadow: 0 18px 44px rgba(91, 58, 70, 0.5);
+}
+
+.closed-book .book-front::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  width: 8px;
+  background: linear-gradient(90deg, rgba(91, 58, 70, 0.4), transparent);
+}
+
+.name-tag {
+  background: var(--crema);
+  color: var(--rosa-profundo);
+  font-family: var(--font-hand);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  padding: 0.35rem 1.6rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--dorado);
+  box-shadow: 0 4px 10px rgba(91, 58, 70, 0.3);
+  transform: rotate(-3deg);
+}
+
+.book-deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ---------- Escena 5: sobre y carta ---------- */
+.envelope {
+  position: relative;
+  width: min(420px, 86vw);
+  aspect-ratio: 1.55;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.envelope .env-body {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(160deg, var(--rosa-pastel), var(--rosa-antiguo));
+  box-shadow: 0 18px 40px rgba(91, 58, 70, 0.35);
+  border: 2px solid rgba(185, 111, 137, 0.4);
+}
+
+.envelope .env-inner {
+  position: absolute;
+  inset: 6px;
+  border-radius: 9px;
+  background:
+    linear-gradient(45deg, transparent 49.4%, rgba(185, 111, 137, 0.35) 49.6% 50.4%, transparent 50.6%),
+    linear-gradient(-45deg, transparent 49.4%, rgba(185, 111, 137, 0.35) 49.6% 50.4%, transparent 50.6%),
+    #fbdce8;
+}
+
+.envelope .env-name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-hand);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: var(--rosa-profundo);
+  z-index: 2;
+}
+
+.envelope .env-flap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 52%;
+  transform-origin: top center;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #e8aac0, var(--rosa-antiguo));
+  border-radius: 12px 12px 0 0;
+  z-index: 3;
+  box-shadow: 0 4px 10px rgba(91, 58, 70, 0.2);
+}
+
+.envelope .env-seal {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e8cf97, var(--dorado) 60%, var(--dorado-oscuro));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  z-index: 4;
+  box-shadow: 0 4px 12px rgba(91, 58, 70, 0.4);
+}
+
+/* Papel que sale del interior del sobre al abrirlo */
+.env-paper {
+  position: absolute;
+  left: 11%;
+  right: 11%;
+  top: 16%;
+  bottom: 14%;
+  border-radius: 4px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 22px, rgba(132, 97, 109, 0.07) 22px 23px),
+    linear-gradient(150deg, #fdf3e4, var(--crema-papel));
+  box-shadow: 0 4px 14px rgba(91, 58, 70, 0.25);
+  z-index: 2;
+}
+
+.envelope-clickable {
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.envelope-clickable:hover {
+  transform: translateY(-4px) scale(1.015);
+}
+
+.letter-sheet {
+  position: relative;
+  width: min(600px, 92vw);
+  max-height: min(64vh, 620px);
+  overflow-y: auto;
+  padding: clamp(1.4rem, 4vw, 2.6rem);
+  border-radius: 4px;
+  text-align: left;
+  z-index: 3;
+}
+
+.letter-sheet h2 {
+  font-family: var(--font-hand);
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  color: var(--rosa-intenso);
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.letter-sheet p {
+  font-family: var(--font-hand);
+  font-size: clamp(1.15rem, 3.2vw, 1.45rem);
+  line-height: 1.8;
+  color: var(--tinta);
+  margin: 0 0 1rem;
+}
+
+.letter-sheet .signature {
+  text-align: right;
+  font-family: var(--font-hand);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--rosa-intenso);
+  margin-top: 1.6rem;
+}
+
+.letter-sheet::-webkit-scrollbar {
+  width: 8px;
+}
+
+.letter-sheet::-webkit-scrollbar-thumb {
+  background: var(--rosa-antiguo);
+  border-radius: 8px;
+}
+
+/* ---------- Escena 6: jardín ---------- */
+.garden-sky {
+  background:
+    radial-gradient(ellipse at 50% 115%, #f3c4d5 0%, transparent 60%),
+    linear-gradient(180deg, #fff2e2 0%, #ffe3ee 45%, #f5c9d9 100%);
+}
+
+.garden-ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28%;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 245, 233, 0.5), transparent 70%),
+    linear-gradient(180deg, #b9c19b 0%, var(--verde-salvia) 55%, var(--verde-oscuro) 100%);
+  border-radius: 100% 100% 0 0 / 46px 46px 0 0;
+  z-index: 1;
+}
+
+/* Colina trasera más clara para dar profundidad */
+.garden-ground.back {
+  height: 34%;
+  border-radius: 100% 100% 0 0 / 60px 60px 0 0;
+  background: linear-gradient(180deg, #ccd4b4 0%, #b0ba90 100%);
+  opacity: 0.85;
+  z-index: 0;
+}
+
+/* Variantes de color de las flores */
+.garden-flower.pastel .bloom {
+  background: radial-gradient(circle at 38% 32%, #fff 0%, var(--rosa-pastel) 55%, var(--rosa-antiguo) 100%);
+}
+
+.garden-flower.cream .bloom {
+  background: radial-gradient(circle at 38% 32%, #fffdf4 0%, #fbe9c9 55%, var(--dorado) 100%);
+}
+
+.garden-flower.cream .bloom::after {
+  background: radial-gradient(circle, #f9b8c9, var(--rosa-antiguo));
+}
+
+/* Briznas de hierba */
+.grass {
+  position: absolute;
+  bottom: 8%;
+  width: 4px;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--verde-salvia), var(--verde-oscuro));
+  transform-origin: bottom center;
+  animation: grow-flower 1s ease both, sway 4.5s ease-in-out 1.2s infinite;
+  z-index: 1;
+}
+
+/* Florecitas pequeñas esparcidas por el campo */
+.field-flower {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.field-flower::after {
+  content: "";
+  display: block;
+  width: 34%;
+  height: 34%;
+  margin: 33% auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe9b8, var(--dorado));
+}
+
+.garden-flower {
+  position: absolute;
+  bottom: 8%;
+  transform-origin: bottom center;
+  animation: grow-flower 1.2s ease both, sway 5s ease-in-out 1.4s infinite;
+}
+
+.garden-flower .stem {
+  width: 5px;
+  height: var(--stem-h, 90px);
+  margin: 0 auto;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--verde-salvia), var(--verde-oscuro));
+}
+
+.garden-flower .bloom {
+  width: var(--bloom, 42px);
+  height: var(--bloom, 42px);
+  margin: 0 auto -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #fbe1ea 0%, var(--rosa-antiguo) 55%, var(--rosa-intenso) 100%);
+  box-shadow: inset -5px -6px 12px rgba(143, 78, 102, 0.35), 0 4px 10px rgba(91, 58, 70, 0.25);
+}
+
+.garden-flower .bloom::after {
+  content: "";
+  display: block;
+  width: 32%;
+  height: 32%;
+  margin: 34% auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe9b8, var(--dorado));
+}
+
+.garden-flower .leaf {
+  position: absolute;
+  bottom: 30%;
+  width: 20px;
+  height: 11px;
+  border-radius: 100% 0 100% 0;
+  background: var(--verde-oscuro);
+}
+
+.garden-flower .leaf.l { left: calc(50% - 20px); transform: rotate(35deg) scaleX(-1); }
+.garden-flower .leaf.r { left: 50%; transform: rotate(-35deg); }
+
+/* ---------- Tarjeta estilo invitación elegante ---------- */
+.golden-frame {
+  position: relative;
+  border: 2px solid var(--dorado);
+  border-radius: 18px;
+  box-shadow:
+    0 18px 46px rgba(143, 78, 102, 0.28),
+    0 4px 14px rgba(143, 78, 102, 0.18);
+}
+
+.golden-frame::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(179, 144, 79, 0.65);
+  border-radius: 13px;
+  pointer-events: none;
+}
+
+.golden-frame::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border: 1.7px dotted rgba(179, 144, 79, 0.55);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.bow-wrap {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.bow-wrap .bow {
+  filter: drop-shadow(0 5px 8px rgba(143, 78, 102, 0.4));
+}
+
+/* Sello de cera con el nombre */
+.wax-seal {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  z-index: 4;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(143, 78, 102, 0.6);
+  background: radial-gradient(circle at 35% 28%, #f0b7ca 0%, var(--rosa-antiguo) 45%, var(--rosa-intenso) 100%);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.22),
+    inset -3px -6px 10px rgba(143, 78, 102, 0.55),
+    0 5px 12px rgba(91, 58, 70, 0.4);
+  transform: rotate(-8deg);
+}
+
+.wax-seal::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Blondas de encaje en las esquinas del escenario */
+.doily {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.doily.tr {
+  top: -160px;
+  right: -160px;
+}
+
+.doily.bl {
+  bottom: -160px;
+  left: -160px;
+}
+
+/* ---------- Reproductor de música ---------- */
+.music-player {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid rgba(215, 185, 120, 0.6);
+  box-shadow: 0 8px 22px rgba(91, 58, 70, 0.28);
+  backdrop-filter: blur(6px);
+}
+
+.music-player button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rosa-intenso), var(--rosa-antiguo));
+  color: #fff;
+}
+
+.music-player input[type="range"] {
+  width: 84px;
+  accent-color: var(--rosa-intenso);
+}
+
+@media (max-width: 600px) {
+  .music-player input[type="range"] {
+    width: 60px;
+  }
+}

@@ -1,0 +1,209 @@
+/* ---------- Paleta y base ---------- */
+:root {
+  --rosa-pastel: #f5d6e0;
+  --rosa-antiguo: #d99aaf;
+  --rosa-intenso: #b96f89;
+  --rosa-profundo: #8f4e66;
+  --crema: #fff5e9;
+  --crema-papel: #f8ecdd;
+  --verde-salvia: #a5ae8a;
+  --verde-oscuro: #7d8863;
+  --dorado: #d7b978;
+  --dorado-oscuro: #b3904f;
+  --tinta: #5b3a46;
+  --tinta-suave: #84616d;
+
+  --font-title: "Cormorant Garamond", "Georgia", serif;
+  --font-hand: "Dancing Script", "Segoe Script", cursive;
+  --font-body: "Lora", "Georgia", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--tinta);
+  background: var(--crema);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Escenas ---------- */
+.scene {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1.25rem;
+}
+
+.scene-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.scene-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 720px;
+  width: 100%;
+}
+
+/* Fondo de papel crema con manchas suaves */
+.bg-paper {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(245, 214, 224, 0.55) 0, transparent 32%),
+    radial-gradient(circle at 85% 15%, rgba(215, 185, 120, 0.28) 0, transparent 30%),
+    radial-gradient(circle at 80% 85%, rgba(217, 154, 175, 0.4) 0, transparent 35%),
+    radial-gradient(circle at 20% 80%, rgba(165, 174, 138, 0.28) 0, transparent 32%),
+    linear-gradient(160deg, #fff8ee 0%, var(--crema) 45%, #fdeef0 100%);
+}
+
+/* Pequeñas flores del fondo (escena 1) */
+.bg-blossom {
+  position: absolute;
+  font-size: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--rosa-antiguo);
+  opacity: 0.5;
+  transform: rotate(45deg);
+}
+
+.bg-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, var(--dorado) 70%, transparent 100%);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* ---------- Tipografía ---------- */
+.title-xl {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  color: var(--rosa-profundo);
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.handwritten {
+  font-family: var(--font-hand);
+  color: var(--rosa-intenso);
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  color: var(--tinta-suave);
+  margin: 0.35rem 0 1.4rem;
+  font-style: italic;
+}
+
+/* ---------- Botones ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 2rem;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--rosa-intenso) 0%, var(--rosa-antiguo) 60%, var(--dorado) 130%);
+  box-shadow: 0 8px 22px rgba(185, 111, 137, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(185, 111, 137, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--rosa-antiguo);
+  background: rgba(255, 245, 233, 0.75);
+  color: var(--rosa-profundo);
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.btn-ghost:hover {
+  background: var(--rosa-pastel);
+  transform: translateY(-1px);
+}
+
+/* ---------- Utilidades ---------- */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--dorado-oscuro);
+  margin: 0.8rem 0;
+  width: min(320px, 70%);
+}
+
+.divider-ornament::before,
+.divider-ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 600px) {
+  .scene {
+    padding: 1rem;
+  }
+
+  .btn-primary {
+    font-size: 1.05rem;
+    padding: 0.8rem 1.6rem;
+  }
+}
